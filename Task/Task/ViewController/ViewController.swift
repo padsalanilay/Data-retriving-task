@@ -12,13 +12,6 @@ class ViewController: UIViewController, DataRetriving {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let jsondelegate = JsonDataRetriving(with: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")
-        jsondelegate.delegate = self
-        // Do any additional setup after loading the view.
-    }
-
-    func didFinishDataRetriving(json data: [String : Any]) {
-        print(data)
     }
 }
 
