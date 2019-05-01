@@ -13,6 +13,8 @@
 		99EEAC48227A08920089F5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EEAC47227A08920089F5A0 /* Assets.xcassets */; };
 		99EEAC4B227A08920089F5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EEAC49227A08920089F5A0 /* LaunchScreen.storyboard */; };
 		99EEAC57227A093E0089F5A0 /* JsonDataRetriving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EEAC56227A093E0089F5A0 /* JsonDataRetriving.swift */; };
+		99EEAC59227A1BF60089F5A0 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EEAC58227A1BF60089F5A0 /* CategoryTableViewController.swift */; };
+		99EEAC5B227A1C0D0089F5A0 /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EEAC5A227A1C0D0089F5A0 /* DataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		99EEAC4A227A08920089F5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99EEAC4C227A08920089F5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99EEAC56227A093E0089F5A0 /* JsonDataRetriving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataRetriving.swift; sourceTree = "<group>"; };
+		99EEAC58227A1BF60089F5A0 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		99EEAC5A227A1C0D0089F5A0 /* DataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				99EEAC42227A08910089F5A0 /* ViewController.swift */,
+				99EEAC58227A1BF60089F5A0 /* CategoryTableViewController.swift */,
+				99EEAC5A227A1C0D0089F5A0 /* DataTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -154,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EEAC5B227A1C0D0089F5A0 /* DataTableViewController.swift in Sources */,
 				99EEAC57227A093E0089F5A0 /* JsonDataRetriving.swift in Sources */,
 				99EEAC43227A08910089F5A0 /* ViewController.swift in Sources */,
 				99EEAC41227A08910089F5A0 /* AppDelegate.swift in Sources */,
+				99EEAC59227A1BF60089F5A0 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

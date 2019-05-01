@@ -18,7 +18,9 @@ class JsonDataRetriving: NSObject {
     
     init(with Url: String) {
         super.init()
-        self.gatData(From: Url)
+        DispatchQueue.global(qos: .background).async {
+            self.gatData(From: Url)
+        }
     }
     
     func gatData(From url: String){
@@ -31,7 +33,9 @@ class JsonDataRetriving: NSObject {
                 if let content = data{
                     do {
                         let jsonData = try JSONSerialization.jsonObject(with: content, options: .mutableContainers) as! [String: Any]
-                        self.delegate?.didFinishDataRetriving(json: jsonData)
+                        DispatchQueue.main.async {
+                            self.delegate?.didFinishDataRetriving(json: jsonData)
+                        }
                     }
                     catch{
                         print("Problem in retriving data from \(url!)")
