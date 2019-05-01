@@ -9,10 +9,21 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
-
+    let urlCreator = UrlCreator()
+    var url = "https://rss.itunes.apple.com/api/v1/us/"
+    var mediaType = ""
+    var dataArray = [String]()
+    var category = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.category = ""
+        if self.mediaType != ""{
+            self.title = "Category"
+            self.dataArray = urlCreator.category[self.mediaType]!
+        }
+        else{
+            self.dataArray = urlCreator.mediaType
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,24 +35,34 @@ class CategoryTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.dataArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        cell.textLabel?.text = self.dataArray[indexPath.row].replacingOccurrences(of: "-", with: " ").capitalized
         // Configure the cell...
 
         return cell
     }
-    */
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.mediaType != ""{
+            self.category = self.urlCreator.category[self.mediaType]![indexPath.row]
+            performSegue(withIdentifier: "data", sender: self)
+        }
+        else{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "categoryVC") as! CategoryTableViewController
+            nextViewController.mediaType = urlCreator.mediaType[indexPath.row]
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -77,14 +98,14 @@ class CategoryTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! DataTableViewController
+        destination.urlStart = self.url + mediaType + "/" + self.category
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

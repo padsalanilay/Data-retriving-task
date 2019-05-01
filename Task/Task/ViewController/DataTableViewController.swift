@@ -11,11 +11,15 @@ import UIKit
 class DataTableViewController: UITableViewController, DataRetriving {
     var data: [[String: Any]]!
     let cellIdentifier = "cell"
+    public var urlStart = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         data = [[String: Any]]()
         
-        let jsondelegate = JsonDataRetriving(with: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")
+        let urlEnd = "/all/10/explicit.json"
+        
+        let jsondelegate = JsonDataRetriving(with: urlStart + urlEnd)
         jsondelegate.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
